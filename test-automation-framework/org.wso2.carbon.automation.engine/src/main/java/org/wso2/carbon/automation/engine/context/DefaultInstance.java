@@ -66,7 +66,7 @@ public class DefaultInstance extends AutomationConfiguration {
         } catch (XPathExpressionException e) {
             log.error("Error while reading the Tenant:" + e.getMessage());
             throw new XPathExpressionException("Error While Reading default User Key:- " +
-                                               e.getMessage());
+                    e.getMessage());
         }
         return tenantKey;
     }
@@ -101,6 +101,10 @@ public class DefaultInstance extends AutomationConfiguration {
                             getNamedItem(ContextXpathConstants.NAME).getTextContent();
                 }
             } else {
+                log.info("--------- standAloneNodeList.getLength() ---------" + standAloneNodeList.getLength());
+                log.info("--------- standAloneNodeList.item(0) ---------" + standAloneNodeList.item(0));
+                log.info("--------- standAloneNodeList.item(0).getAttributes().getLength() ---------" + standAloneNodeList.item(0).getAttributes().getLength());
+                log.info("--------- standAloneNodeList.item(0).getAttributes().getNamedItem(ContextXpathConstants.NAME).getTextContent() ---------" + standAloneNodeList.item(0).getAttributes().getNamedItem(ContextXpathConstants.NAME).getTextContent());
                 managerNode = standAloneNodeList.item(0).getAttributes().
                         getNamedItem(ContextXpathConstants.NAME).getTextContent();
             }
@@ -108,7 +112,7 @@ public class DefaultInstance extends AutomationConfiguration {
         } catch (XPathExpressionException e) {
             log.error("Error while reading the default Manager:" + e.getMessage());
             throw new XPathExpressionException("Error While Reading default Tenant Domain:- " +
-                                               e.getMessage());
+                    e.getMessage());
         }
         return managerNode;
     }
@@ -149,7 +153,7 @@ public class DefaultInstance extends AutomationConfiguration {
         } catch (XPathExpressionException e) {
             log.error("Error while reading the default worker:" + e.getMessage());
             throw new XPathExpressionException("Error While Reading default Tenant Domain:- " +
-                                               e.getMessage());
+                    e.getMessage());
         }
         return workerNode;
     }
